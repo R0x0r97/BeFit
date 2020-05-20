@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeFit", "BeFit\BeFit.csproj", "{28804A80-8D04-4B8C-AD9A-2EE950BF727C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeFit.Model", "BeFit.Model\BeFit.Model.csproj", "{B7C9961C-630E-4A60-B5FB-2EFE4361082E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28804A80-8D04-4B8C-AD9A-2EE950BF727C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28804A80-8D04-4B8C-AD9A-2EE950BF727C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28804A80-8D04-4B8C-AD9A-2EE950BF727C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28804A80-8D04-4B8C-AD9A-2EE950BF727C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7C9961C-630E-4A60-B5FB-2EFE4361082E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7C9961C-630E-4A60-B5FB-2EFE4361082E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7C9961C-630E-4A60-B5FB-2EFE4361082E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7C9961C-630E-4A60-B5FB-2EFE4361082E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A8C782D2-4AD1-4F29-B4FF-A5053946753F}
+	EndGlobalSection
+EndGlobal
