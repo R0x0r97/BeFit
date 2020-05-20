@@ -55,16 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -93,6 +85,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeFit.Common\BeFit.Common.csproj">
+      <Project>{69023A94-55FF-4DF1-9BC1-C431CC1127EB}</Project>
+      <Name>BeFit.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeFit.ViewModel\BeFit.ViewModel.csproj">
+      <Project>{F4AC66A2-0D5B-4484-B25D-9D833C5CD09E}</Project>
+      <Name>BeFit.ViewModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeFit.View\BeFit.View.csproj">
+      <Project>{6D775471-935D-42B3-8924-793F7EC31FD5}</Project>
+      <Name>BeFit.View</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
