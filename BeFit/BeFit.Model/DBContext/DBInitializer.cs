@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BeFit.Model.DBContext
 {
-    class DBInitializer : CreateDatabaseIfNotExists<BeFitDB>
+    public class DBInitializer : CreateDatabaseIfNotExists<BeFitDB>
     {
 
     }

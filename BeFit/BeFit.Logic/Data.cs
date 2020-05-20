@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace BeFit.Logic
 {
-    public static class Data//el kell erni barhonnan
+    public static class Data
     {
         static Data()
         {
-            Catalog = new CatalogController();
+            Controller = new BeFitController();
         }
 
-        public static CatalogController Catalog { get; }
+        public static BeFitController Controller { get; }
 
     }
 }

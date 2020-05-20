@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B1AA433B-9FAC-4A3F-8A42-F4F4C1B4D697}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <RootNamespace>BeFit.Logic</RootNamespace>
     <AssemblyName>BeFit.Logic</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,12 +32,21 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CatalogController.cs" />
     <Compile Include="Data.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeFit.Model\BeFit.Model.csproj">
+      <Project>{B7C9961C-630E-4A60-B5FB-2EFE4361082E}</Project>
+      <Name>BeFit.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

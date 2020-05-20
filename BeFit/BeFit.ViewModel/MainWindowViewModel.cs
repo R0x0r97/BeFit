@@ -13,14 +13,14 @@ namespace BeFit.ViewModel
     public class MainWindowViewModel : ViewModelBase
    {
 
-        private int test = 0;
+        /*private int test = 0;
 
 
     public MainWindowViewModel()
     {
             Test = 2;
             this.VehicleSearchVM = new VehicleSearchVM();
-      this.CloseCommand = new RelayCommand<string>(this.CloseCommandExecute, this.CloseCommandCanExecute);
+            this.CloseCommand = new RelayCommand<string>(this.CloseCommandExecute, this.CloseCommandCanExecute);
     }
         public VehicleSearchVM VehicleSearchVM { get;}
 
@@ -50,6 +50,6 @@ namespace BeFit.ViewModel
                 this.RaisePropertyChanged();
             }
     }
-        
+      */  
     }
 }

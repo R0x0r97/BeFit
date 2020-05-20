@@ -10,20 +10,19 @@ namespace BeFit.Logic
     using System.Collections.Generic;
     using System.Linq;
     using BeFit.Model.DBContext;
-    using BeFitClient.Model;
 
     public class BeFitController
     {
         private BeFitDB beFitDatabase;
 
-        public CatalogController()
+        public BeFitController()
         {
             this.beFitDatabase = new BeFitDB();
         }
 
-        public List<Manufacturer> GetManufacturers()
+        /*public List<Manufacturer> GetManufacturers()
         {
             return this.catalogDatabase.Manufacturer.ToList();
-        }
+        }*/
     }
 }

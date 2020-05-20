@@ -2,12 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using BeFit.Common.MVVM;
 using BeFit.ViewModel;
+using BeFit.Model.DBContext;
 
 namespace BeFit
 {
@@ -42,7 +42,7 @@ namespace BeFit
             try
             {
                 DBInitializer dbinit = new DBInitializer();
-                dbinit.InitializeDatabase(new BeFitDB());
+                //dbinit.InitializeDatabase(new BeFitDB());
             }
             catch (Exception ex)
             {
