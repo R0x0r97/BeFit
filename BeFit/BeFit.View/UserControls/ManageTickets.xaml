@@ -19,22 +19,23 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Label Content="Card" Grid.Row="0" Grid.Column="0"></Label>
+        <Label Content="Client" Grid.Row="0" Grid.Column="0"></Label>
         <ComboBox Grid.Row="0" Grid.Column="1"
                   ItemsSource="{Binding Clients}"
                   DisplayMemberPath="Name"
-                  SelectedItem="{Binding Client}">
+                  SelectedItem="{Binding Client, Mode=TwoWay}">
         </ComboBox>
         <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="4"
                 Command="{Binding SellTicketCommand}"
                 Content="Sell Ticket" Width="87" Margin="10,0,0,0">
         </Button>
+        <Label Grid.Row="1" Grid.Column="0" Content="Card Number"></Label>
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding CardId}"></Label>
-        <Label Content="Type" Grid.Row="2" Grid.Column="0"></Label>
+        <Label Content="TicketType" Grid.Row="2" Grid.Column="0"></Label>
         <ComboBox Grid.Row="2" Grid.Column="1"
                   ItemsSource="{Binding TicketTypes}"
                   DisplayMemberPath="Name"
-                  SelectedItem="{Binding TicketType}">
+                  SelectedItem="{Binding TicketType, Mode=TwoWay}">
         </ComboBox>
         <Label Content="Activation date" Grid.Row="3" Grid.Column="0"></Label>
         <DatePicker Grid.Row="3" Grid.Column="1"
