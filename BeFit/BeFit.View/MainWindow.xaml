@@ -24,6 +24,8 @@
             <TabItem Header="Sell Ticket">
                 <TabItem.ContentTemplate>
                     <DataTemplate>
+                        <controls:ManageTickets DataContext="{Binding DataContext.ManageTicketsVM, 
+                            RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
                     </DataTemplate>
                 </TabItem.ContentTemplate>
             </TabItem>

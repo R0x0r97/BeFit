@@ -46,6 +46,7 @@
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="UserControls\ManageClientsVM.cs" />
     <Compile Include="UserControls\ManageEntriesVM.cs" />
+    <Compile Include="UserControls\ManageTicketsVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeFit.Common\BeFit.Common.csproj">
@@ -59,6 +60,10 @@
     <ProjectReference Include="..\BeFit.Model\BeFit.Model.csproj">
       <Project>{B7C9961C-630E-4A60-B5FB-2EFE4361082E}</Project>
       <Name>BeFit.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeFit.View\BeFit.View.csproj">
+      <Project>{6D775471-935D-42B3-8924-793F7EC31FD5}</Project>
+      <Name>BeFit.View</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

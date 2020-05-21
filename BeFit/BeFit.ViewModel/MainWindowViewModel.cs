@@ -16,10 +16,12 @@ namespace BeFit.ViewModel
         public MainWindowViewModel()
         {
             ManageClientsVM = new ManageClientsVM();
+            ManageTicketsVM = new ManageTicketsVM();
             ManageEntriesVM = new ManageEntriesVM();
             CloseCommand = new RelayCommand<string>(CloseCommandExecute, CloseCommandCanExecute);
         }
         public ManageClientsVM ManageClientsVM { get; }
+        public ManageTicketsVM ManageTicketsVM { get; }
         public ManageEntriesVM ManageEntriesVM { get; }
 
         public RelayCommand<string> CloseCommand { get; }

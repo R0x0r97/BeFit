@@ -3,6 +3,7 @@
 
 namespace BeFit.Logic
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using BeFit.Model;
@@ -20,6 +21,16 @@ namespace BeFit.Logic
         public List<Client> GetClients()
         {
             return beFitDatabase.Clients.ToList();
+        }
+
+        public List<User> GetUsers()
+        {
+            return beFitDatabase.Users.ToList();
+        }
+
+        public List<TicketType> GetTicketTypes()
+        {
+            return beFitDatabase.Types.ToList();
         }
 
         public int GetLastEntryId()
@@ -47,9 +58,37 @@ namespace BeFit.Logic
             beFitDatabase.Entries.Add(entry);
         }
 
-        public List<User> GetUsers()
+        public int GetLastTicketId()
         {
-            return beFitDatabase.Users.ToList();
+            var sale = beFitDatabase.Sales.Last();
+            if (sale == null)
+            {
+                return -1;
+            }
+            else
+            {
+                return sale.Id;
+            }
+        }
+
+        public void AddTicket(Client client, TicketType ticketType, DateTime? startDate = null)
+        {
+            var ticket = new Ticket
+            {
+                BuyDate = DateTime.Now,
+                Client = client,
+                Id = GetLastTicketId() + 1,
+                RemainingEntries = ticketType.TimesUsable,
+                Type = ticketType
+            };
+
+            if (startDate != null)
+            {
+                ticket.Start = startDate.Value;
+                ticket.End = startDate.Value.AddDays(ticketType.LengthInDays);
+            }
+
+            beFitDatabase.Sales.Add(ticket);
         }
     }
 }

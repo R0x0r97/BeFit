@@ -18,8 +18,7 @@
         <Label Grid.Row="0" Grid.Column="0" Content="Clients"></Label>
         <ComboBox Grid.Row="0" Grid.Column="1" Margin="5" 
                   ItemsSource="{Binding Clients}" 
-                  SelectedValue ="{Binding ClientId, Mode=TwoWay}" 
-                  SelectedValuePath="Id"
+                  SelectedValue ="{Binding SelectedClient, Mode=TwoWay}"
                   DisplayMemberPath="Id"></ComboBox>
     </Grid>
 </UserControl>

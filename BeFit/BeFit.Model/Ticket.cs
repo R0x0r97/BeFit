@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeFit.Model
 {
@@ -18,7 +17,7 @@ namespace BeFit.Model
 
         public DateTime End { get; set; }
 
-        public int TimesUsed { get; set; }
+        public int RemainingEntries { get; set; }
 
         public TicketType Type { get; set; }
     }
