@@ -12,6 +12,9 @@ namespace BeFit.ViewModel.UserControls
     public class ManageEntriesVM : ViewModelBase
     {
         private Client selectedClient;
+        private List<Ticket> selectedClientTickets;
+        private Ticket selectedTicket;
+        private string errorMessage;
         public RelayCommand<string> AddEntryCommand { get; }
 
         public ManageEntriesVM()
@@ -27,6 +30,18 @@ namespace BeFit.ViewModel.UserControls
             }
         }
 
+        public List<Ticket> SelectedClientTickets {
+            get
+            {
+                return selectedClientTickets;
+            }
+            set
+            {
+                selectedClientTickets = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public Client SelectedClient
         {
             get
@@ -36,6 +51,33 @@ namespace BeFit.ViewModel.UserControls
             set
             {
                 selectedClient = value;
+                SelectedClientTickets = Data.Controller.GetTicketsForClientId(selectedClient.Id);
+                RaisePropertyChanged();
+            }
+        }
+
+        public Ticket SelectedTicket
+        {
+            get
+            {
+                return selectedTicket;
+            }
+            set
+            {
+                selectedTicket = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string ErrorMessage
+        {
+            get
+            {
+                return errorMessage;
+            }
+            set
+            {
+                errorMessage = value;
                 RaisePropertyChanged();
             }
         }
@@ -47,8 +89,28 @@ namespace BeFit.ViewModel.UserControls
 
         public bool AddEntryCommandCanExecute()
         {
-            //Verify Card validity
-            return true;
+            if(selectedTicket.RemainingEntries != null)
+            {
+                if(selectedTicket.RemainingEntries > 0)
+                {
+                    selectedTicket.RemainingEntries--;
+                    return true;
+                }
+                ErrorMessage = "There are no remaining entry points on this ticket!";
+                return false;
+            }
+            else
+            {
+                if(selectedTicket.End > DateTime.Now)
+                {
+                    return true;
+                }
+                else
+                {
+                    ErrorMessage = "This ticket is expired!";
+                    return false;
+                }
+            }
         }
     }
 }

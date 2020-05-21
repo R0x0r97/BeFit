@@ -35,6 +35,11 @@
             return beFitDatabase.Types.ToList();
         }
 
+        public List<Ticket> GetTicketsForClientId(int clientId)
+        {
+            return beFitDatabase.Tickets.Where(t => t.ClientId == clientId).ToList();
+        }
+
         public void AddEntry(Client client)
         {
             Entry entry = new Entry
