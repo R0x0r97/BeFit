@@ -10,9 +10,9 @@ namespace BeFit.Model
 
         public float Price { get; set; }
 
-        public int TimesUsable { get; set; }
+        public int? TimesUsable { get; set; }
 
-        public int LengthInDays { get; set; }
+        public int? LengthInDays { get; set; }
 
         public string Name { get; set; }
 
