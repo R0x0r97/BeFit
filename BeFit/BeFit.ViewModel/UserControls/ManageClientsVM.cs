@@ -77,18 +77,13 @@ namespace BeFit.ViewModel.UserControls
 
         public void AddClientCommandExecute(string obj)
         {
-            Client Client = new Client {
-                Name = NameInput,
-                Email = EmailInput,
-                PhoneNumber = PhoneNumberInput,
-                IsDeleted = false,
-                Picture = ".",
-                Id = 0,
-                BirthDate = BirthdayInput
-            };
-            
-            Data.Controller.AddClient(Client);
+            Data.Controller.AddClient(NameInput, PhoneNumberInput, EmailInput, BirthdayInput);
 
+            ResetInput();
+        }
+
+        public void ResetInput()
+        {
             NameInput = "";
             EmailInput = "";
             PhoneNumberInput = "";

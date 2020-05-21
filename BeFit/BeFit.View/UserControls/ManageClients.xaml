@@ -73,9 +73,9 @@
                  MinWidth="200"
                  HorizontalAlignment="Center"
                  VerticalAlignment="Center"
-                 DisplayDate="01/01/2000"
-                 DisplayDateStart="01/01/1950"
-                 DisplayDateEnd="01/01/2002"
+                 DisplayDate="1/1/2000"
+                 DisplayDateStart="1/1/1950"
+                 DisplayDateEnd="1/1/2002"
                  SelectedDate="{Binding BirthdayInput, Mode=TwoWay}"/>
         
         <TextBox Grid.Row="3"
