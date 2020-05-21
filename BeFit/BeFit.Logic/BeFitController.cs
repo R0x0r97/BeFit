@@ -60,6 +60,18 @@
             beFitDatabase.Sales.Add(ticket);
         }
 
+        public int GetLastCardId ()
+        {
+            if (beFitDatabase.Clients.ToList().Count != 0)
+            {
+                return beFitDatabase.Clients.ToList().Last().CardId;
+            }
+            else
+            {
+                return 999999;
+            }
+        }
+
         public void AddClient(Client newClient)
         {
             Client client = new Client
@@ -70,6 +82,7 @@
                 Name = newClient.Name,
                 PhoneNumber = newClient.Name,
                 Picture = newClient.Picture,
+                CardId = GetLastCardId() + 1
             };
 
             beFitDatabase.Clients.Add(client);
