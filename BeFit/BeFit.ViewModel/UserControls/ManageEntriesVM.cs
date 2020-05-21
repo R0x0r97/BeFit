@@ -19,7 +19,7 @@ namespace BeFit.ViewModel.UserControls
 
         public ManageEntriesVM()
         {
-            AddEntryCommand = new RelayCommand<string>(AddEntryCommandExecute, AddEntryCommandCanExecute);
+            AddEntryCommand = new RelayCommand<string>(AddEntryCommandExecute);
         }
 
         public List<Client> Clients
@@ -84,14 +84,38 @@ namespace BeFit.ViewModel.UserControls
 
         public void AddEntryCommandExecute(string obj)
         {
-            Data.Controller.AddEntry(SelectedClient);
+            if (isTicketValid())
+            {
+                Data.Controller.AddEntry(SelectedClient);
+            }
         }
 
-        public bool AddEntryCommandCanExecute()
+        public bool isTicketValid()
         {
-            if(selectedTicket.RemainingEntries != null)
+            if(selectedTicket.RemainingEntries != null && selectedTicket.End != null)
             {
-                if(selectedTicket.RemainingEntries > 0)
+                if (selectedTicket.End > DateTime.Now)
+                {
+                    if (selectedTicket.RemainingEntries > 0)
+                    {
+                        selectedTicket.RemainingEntries--;
+                        return true;
+                    }
+                    else
+                    {
+                        ErrorMessage = "There are no remaining entry points on this ticket!";
+                        return false;
+                    }
+                }
+                else
+                {
+                    ErrorMessage = "This ticket is expired!";
+                    return false;
+                }
+            }
+            if (selectedTicket.RemainingEntries != null)
+            {
+                if (selectedTicket.RemainingEntries > 0)
                 {
                     selectedTicket.RemainingEntries--;
                     return true;
@@ -99,9 +123,9 @@ namespace BeFit.ViewModel.UserControls
                 ErrorMessage = "There are no remaining entry points on this ticket!";
                 return false;
             }
-            else
+            if(selectedTicket.End != null)
             {
-                if(selectedTicket.End > DateTime.Now)
+                if (selectedTicket.End > DateTime.Now)
                 {
                     return true;
                 }
@@ -111,6 +135,7 @@ namespace BeFit.ViewModel.UserControls
                     return false;
                 }
             }
+            return false;
         }
     }
 }
