@@ -11,7 +11,6 @@ namespace BeFit.ViewModel.UserControls
 {
     public class ManageClientsVM : ViewModelBase
     {
-        private Client client;
         public RelayCommand<string> AddClientCommand { get; }
 
         public string nameInput;
@@ -72,19 +71,6 @@ namespace BeFit.ViewModel.UserControls
             set
             {
                 emailInput = value;
-                RaisePropertyChanged();
-            }
-        }
-
-        public Client Client
-        {
-            get
-            {
-                return client;
-            }
-            set
-            {
-                client = value;
                 RaisePropertyChanged();
             }
         }

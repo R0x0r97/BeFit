@@ -1,7 +1,4 @@
-﻿// ------------------------------------------------------------------------------------------------------------------
-
-
-namespace BeFit.Logic
+﻿namespace BeFit.Logic
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -72,6 +69,8 @@ namespace BeFit.Logic
                 Picture = newClient.Picture,
                 Id = GetLastClientId() + 1
             };
+
+            beFitDatabase.Clients.Add(client);
         }
 
         public List<User> GetUsers()
