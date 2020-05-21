@@ -11,8 +11,17 @@ namespace BeFit.ViewModel.UserControls
 {
     public class ManageTicketsVM : ViewModelBase
     {
+        private Client client;
+        private string cardId;
+
+        public TicketType TicketType { get; set; }
+        public DateTime StartDate { get; set; }
+
+        private RelayCommand<string> SellTicket;
+
         public ManageTicketsVM()
         {
+            SellTicket = new RelayCommand<string>(SellTicketCommandExecute);
         }
 
         public List<Client> Clients
@@ -31,8 +40,36 @@ namespace BeFit.ViewModel.UserControls
             }
         }
 
-        public Client Client { get; set; }
-        public TicketType TicketType { get; set; }
-        public DateTime Date { get; set; }
+        public Client Client
+        {
+            get
+            {
+                return client;
+            }
+            set
+            {
+                client = value;
+                //CardId = client.CardId.ToString();
+                CardId = client.Name;
+            }
+        }
+
+        public string CardId
+        {
+            get
+            {
+                return cardId;
+            }
+            set
+            {
+                cardId = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        private void SellTicketCommandExecute(string obj)
+        {
+            Data.Controller.AddTicket(Client, TicketType, StartDate);
+        }
     }
 }

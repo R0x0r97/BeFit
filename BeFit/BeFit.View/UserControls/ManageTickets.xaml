@@ -11,26 +11,34 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <Label Content="Card" Grid.Row="0" Grid.Column="0"></Label>
-        <Label Content="Type" Grid.Row="1" Grid.Column="0"></Label>
-        <Label Content="Activation date" Grid.Row="2" Grid.Column="0"></Label>
-
         <ComboBox Grid.Row="0" Grid.Column="1"
                   ItemsSource="{Binding Clients}"
+                  DisplayMemberPath="Name"
                   SelectedItem="{Binding Client}">
         </ComboBox>
-        <ComboBox Grid.Row="1" Grid.Column="1"
+        <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="4"
+                Command="{Binding SellTicketCommand}"
+                Content="Sell Ticket" Width="87" Margin="10,0,0,0">
+        </Button>
+        <Label Grid.Row="1" Grid.Column="1" Content="{Binding CardId}"></Label>
+        <Label Content="Type" Grid.Row="2" Grid.Column="0"></Label>
+        <ComboBox Grid.Row="2" Grid.Column="1"
                   ItemsSource="{Binding TicketTypes}"
+                  DisplayMemberPath="Name"
                   SelectedItem="{Binding TicketType}">
         </ComboBox>
-        <DatePicker Grid.Row="2" Grid.Column="1"
-                    SelectedDate="{Binding Date}">
+        <Label Content="Activation date" Grid.Row="3" Grid.Column="0"></Label>
+        <DatePicker Grid.Row="3" Grid.Column="1"
+                    SelectedDate="{Binding StartDate}">
         </DatePicker>
     </Grid>
 </UserControl>
