@@ -9,5 +9,9 @@ namespace BeFit.ViewModel.Pages
 {
     public class MainPageVM : ViewModelBase
     {
+        public MainPageVM(int userId)
+        {
+
+        }
     }
 }

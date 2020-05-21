@@ -39,14 +39,14 @@
                   DisplayMemberPath="CardId"></ComboBox>
         <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" 
                   ItemsSource="{Binding SelectedClientTickets}" 
-                  SelectedValue ="{Binding SelectedTicket, Mode=TwoWay}"
-                  DisplayMemberPath="TicketType.Name"></ComboBox>
+                  SelectedValue ="{Binding SelectedTicket}"
+                  DisplayMemberPath="Id"></ComboBox>
         <Button Grid.Row="1" 
                 Grid.Column="2"
                 Height="23" 
                 Width="50"
                 VerticalAlignment="Center"
-                Command="{Binding AddEntryCommandExecute}">
+                Command="{Binding AddEntryCommand}">
             Enter
         </Button>
         <TextBox 

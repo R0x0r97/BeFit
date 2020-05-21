@@ -44,7 +44,7 @@
         {
             Entry entry = new Entry
             {
-                Client = client,
+                ClientId = client.Id,
                 Date = System.DateTime.Now,
             };
 
@@ -63,7 +63,7 @@
                 UserId = GetSeller().Id
             };
 
-            if (startDate != null)
+            if (startDate != null && ticketType.LengthInDays != null)
             {
                 ticket.Start = startDate.Value;
                 ticket.End = startDate.Value.AddDays(ticketType.LengthInDays.Value);
