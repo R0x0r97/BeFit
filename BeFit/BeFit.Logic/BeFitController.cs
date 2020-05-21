@@ -72,16 +72,16 @@
             }
         }
 
-        public void AddClient(Client newClient)
+        public void AddClient(string newName, string newPhone, string newEmail, DateTime newBirthdate)
         {
             Client client = new Client
             {
-                BirthDate = newClient.BirthDate,
-                Email = newClient.Email,
+                BirthDate = newBirthdate,
+                Email = newEmail,
                 IsDeleted = false,
-                Name = newClient.Name,
-                PhoneNumber = newClient.Name,
-                Picture = newClient.Picture,
+                Name = newName,
+                PhoneNumber = newPhone,
+                Picture = ".",
                 CardId = GetLastCardId() + 1
             };
 
