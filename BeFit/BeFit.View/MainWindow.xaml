@@ -11,8 +11,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
-        <TabControl Grid.Row="0" 
-                    SelectedIndex="{Binding SelectedTabIndex, Mode=TwoWay}">
+        <TabControl Grid.Row="0">
             <TabItem Header="Clients">
                 <TabItem.ContentTemplate>
                     <DataTemplate>

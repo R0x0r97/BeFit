@@ -11,10 +11,10 @@ namespace BeFit.Model.DBContext
     {
         protected override void Seed(BeFitDB context)
         {
-            base.Seed(context);
+            AddData(context);
         }
 
-        private void AddTypes(BeFitDB context)
+        private void AddData(BeFitDB context)
         {
             context.Types.Add(new TicketType { Id = 0, isDeleted = false, Name = "Type1", Price = 10, LengthInDays = 30, TimesUsable = null });
             context.Types.Add(new TicketType { Id = 1, isDeleted = false, Name = "Type2", Price = 18, LengthInDays = 60, TimesUsable = null });

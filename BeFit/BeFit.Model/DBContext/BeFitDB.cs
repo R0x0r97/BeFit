@@ -12,7 +12,7 @@
 
         public virtual DbSet<Entry> Entries { get; set; }
 
-        public virtual DbSet<Ticket> Sales { get; set; }
+        public virtual DbSet<Ticket> Tickets { get; set; }
 
         public virtual DbSet<TicketType> Types { get; set; }
 

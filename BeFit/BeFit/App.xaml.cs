@@ -42,7 +42,7 @@ namespace BeFit
             try
             {
                 DBInitializer dbinit = new DBInitializer();
-                //dbinit.InitializeDatabase(new BeFitDB());
+                dbinit.InitializeDatabase(new BeFitDB());
             }
             catch (Exception ex)
             {

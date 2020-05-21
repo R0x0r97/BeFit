@@ -20,6 +20,7 @@ namespace BeFit.ViewModel.UserControls
 
         public ManageClientsVM()
         {
+            birthdayInput = DateTime.Now;
             AddClientCommand = new RelayCommand<string>(AddClientCommandExecute, AddClientCommandCanExecute);
         }
 
@@ -87,7 +88,7 @@ namespace BeFit.ViewModel.UserControls
             NameInput = "";
             EmailInput = "";
             PhoneNumberInput = "";
-            BirthdayInput = new DateTime(2000, 1, 1);
+            BirthdayInput = DateTime.Now;
         }
 
         public bool AddClientCommandCanExecute()

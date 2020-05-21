@@ -15,6 +15,11 @@
             this.beFitDatabase = new BeFitDB();
         }
 
+        public User GetSeller()
+        {
+            return beFitDatabase.Users.ToList().FirstOrDefault();
+        }
+
         public List<Client> GetClients()
         {
             return beFitDatabase.Clients.ToList();
@@ -39,6 +44,7 @@
             };
 
             beFitDatabase.Entries.Add(entry);
+            beFitDatabase.SaveChanges();
         }
 
         public void AddTicket(Client client, TicketType ticketType, DateTime? startDate = null)
@@ -46,9 +52,10 @@
             var ticket = new Ticket
             {
                 BuyDate = DateTime.Now,
-                Client = client,
-                RemainingEntries = ticketType.TimesUsable.Value,
-                Type = ticketType
+                ClientId = client.Id,
+                RemainingEntries = ticketType.TimesUsable,
+                TicketTypeId = ticketType.Id,
+                UserId = GetSeller().Id
             };
 
             if (startDate != null)
@@ -57,7 +64,8 @@
                 ticket.End = startDate.Value.AddDays(ticketType.LengthInDays.Value);
             }
 
-            beFitDatabase.Sales.Add(ticket);
+            beFitDatabase.Tickets.Add(ticket);
+            beFitDatabase.SaveChanges();
         }
 
         public int GetLastCardId ()
