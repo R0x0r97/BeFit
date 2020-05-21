@@ -88,6 +88,11 @@ namespace BeFit.ViewModel.UserControls
             };
             
             Data.Controller.AddClient(Client);
+
+            NameInput = "";
+            EmailInput = "";
+            PhoneNumberInput = "";
+            BirthdayInput = new DateTime(2000, 1, 1);
         }
 
         public bool AddClientCommandCanExecute()
