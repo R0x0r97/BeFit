@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BeFit.Model
 {
-    public class Login
+    public class Entry
     {
         [Key]
         public int Id { get; set; }

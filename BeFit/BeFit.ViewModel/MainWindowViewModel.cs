@@ -8,48 +8,28 @@
 namespace BeFit.ViewModel
 {
     using BeFit.Common.MVVM;
+    using BeFit.ViewModel.UserControls;
     using System.Collections.Generic;
 
     public class MainWindowViewModel : ViewModelBase
-   {
-
-        /*private int test = 0;
-
-
-    public MainWindowViewModel()
     {
-            Test = 2;
-            this.VehicleSearchVM = new VehicleSearchVM();
-            this.CloseCommand = new RelayCommand<string>(this.CloseCommandExecute, this.CloseCommandCanExecute);
-    }
-        public VehicleSearchVM VehicleSearchVM { get;}
+        public MainWindowViewModel()
+        {
+            ManageClientsVM = new ManageClientsVM();
+            CloseCommand = new RelayCommand<string>(this.CloseCommandExecute, this.CloseCommandCanExecute);
+        }
+        public ManageClientsVM ManageClientsVM { get; }
 
-        public RelayCommand<string> CloseCommand { get;}//ezzel csak ctor ban inicializalhato
+        public RelayCommand<string> CloseCommand { get; }
 
-    public void CloseCommandExecute(string obj)
-    {
-            this.Test = 3;
-            List<Manufacturer> data = Data.Catalog.GetManufacturers();
-      //ViewService.CloseDialog(this);
-    }
+        public void CloseCommandExecute(string obj)
+        {
+            ViewService.CloseDialog(this);
+        }
 
         public bool CloseCommandCanExecute()
         {
             return true;
         }
-
-    public int Test
-    {
-            get
-            {
-                return this.test;
-            }
-            set
-            {
-                this.test = value;
-                this.RaisePropertyChanged();
-            }
-    }
-      */  
     }
 }

@@ -46,9 +46,9 @@
     <Compile Include="Client.cs" />
     <Compile Include="DBContext\BeFitDB.cs" />
     <Compile Include="DBContext\DBInitializer.cs" />
-    <Compile Include="Login.cs" />
-    <Compile Include="Sale.cs" />
-    <Compile Include="Type.cs" />
+    <Compile Include="Entry.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="TicketType.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

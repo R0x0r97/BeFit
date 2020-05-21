@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BeFit.Model
 {
-    public class Type
+    public class TicketType
     {
         [Key]
         public int Id { get; set; }

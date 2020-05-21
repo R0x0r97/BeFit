@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="UserControls\ManageClientsVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeFit.Common\BeFit.Common.csproj">
@@ -47,5 +48,6 @@
       <Name>BeFit.Common</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
