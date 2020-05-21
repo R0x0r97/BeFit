@@ -75,17 +75,19 @@
                 BuyDate = DateTime.Now,
                 Client = client,
                 Id = GetLastTicketId() + 1,
-                RemainingEntries = ticketType.TimesUsable,
+                RemainingEntries = ticketType.TimesUsable.Value,
                 Type = ticketType
             };
 
             if (startDate != null)
             {
                 ticket.Start = startDate.Value;
-                ticket.End = startDate.Value.AddDays(ticketType.LengthInDays);
+                ticket.End = startDate.Value.AddDays(ticketType.LengthInDays.Value);
             }
 
             beFitDatabase.Sales.Add(ticket);
+        }
+
         public int GetLastClientId()
         {
             var entry = beFitDatabase.Entries.Last();
@@ -113,11 +115,6 @@
             };
 
             beFitDatabase.Clients.Add(client);
-        }
-
-        public List<User> GetUsers()
-        {
-            return beFitDatabase.Users.ToList();
         }
     }
 }
