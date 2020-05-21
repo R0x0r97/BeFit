@@ -22,7 +22,7 @@ namespace BeFit.ViewModel.UserControls
         public ManageTicketsVM()
         {
             StartDate = DateTime.Now;
-            SellTicketCommand = new RelayCommand<string>(SellTicketCommandExecute);
+            SellTicketCommand = new RelayCommand<string>(SellTicketCommandExecute, SellTicketCommandCanExecute);
         }
 
         public List<Client> Clients
@@ -78,6 +78,15 @@ namespace BeFit.ViewModel.UserControls
         {
             Data.Controller.AddTicket(Client, TicketType, StartDate);
             ResetUIData();
+        }
+
+        private bool SellTicketCommandCanExecute()
+        {
+            if (Client != null && TicketType != null)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void ResetUIData()

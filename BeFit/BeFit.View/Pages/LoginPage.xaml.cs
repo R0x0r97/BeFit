@@ -13,24 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace BeFit.View.UserControls
+namespace BeFit.View.Pages
 {
     /// <summary>
-    /// Interaction logic for ManageTickets.xaml
+    /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class ManageTickets : UserControl
+    public partial class LoginPage : UserControl
     {
-        public ManageTickets()
+        public LoginPage()
         {
             InitializeComponent();
-        }
-        private void SellTicketButtonClicked(object sender, EventArgs e)
-        {
-            clientComboBox.SelectedIndex = -1;
-            clientComboBox.Text = "";
-
-            ticketTypeComboBox.SelectedIndex = -1;
-            ticketTypeComboBox.Text = "";
         }
     }
 }

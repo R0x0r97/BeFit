@@ -21,11 +21,13 @@
 
         <Label Content="Client" Grid.Row="0" Grid.Column="0"></Label>
         <ComboBox Grid.Row="0" Grid.Column="1"
+                  x:Name="clientComboBox"
                   ItemsSource="{Binding Clients}"
                   DisplayMemberPath="Name"
-                  SelectedItem="{Binding Client, Mode=TwoWay}">
+                  SelectedItem="{Binding Client}">
         </ComboBox>
         <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="4"
+                Click="SellTicketButtonClicked"
                 Command="{Binding SellTicketCommand}"
                 Content="Sell Ticket" Width="87" Margin="10,0,0,0">
         </Button>
@@ -33,9 +35,10 @@
         <Label Grid.Row="1" Grid.Column="1" Content="{Binding CardId}"></Label>
         <Label Content="TicketType" Grid.Row="2" Grid.Column="0"></Label>
         <ComboBox Grid.Row="2" Grid.Column="1"
+                  x:Name="ticketTypeComboBox"
                   ItemsSource="{Binding TicketTypes}"
                   DisplayMemberPath="Name"
-                  SelectedItem="{Binding TicketType, Mode=TwoWay}">
+                  SelectedItem="{Binding TicketType}">
         </ComboBox>
         <Label Content="Activation date" Grid.Row="3" Grid.Column="0"></Label>
         <DatePicker Grid.Row="3" Grid.Column="1"

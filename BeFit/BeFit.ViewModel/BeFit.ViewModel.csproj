@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Pages\LoginPageVM.cs" />
+    <Compile Include="Pages\MainPageVM.cs" />
     <Compile Include="UserControls\ManageClientsVM.cs" />
     <Compile Include="UserControls\ManageEntriesVM.cs" />
     <Compile Include="UserControls\ManageTicketsVM.cs" />
