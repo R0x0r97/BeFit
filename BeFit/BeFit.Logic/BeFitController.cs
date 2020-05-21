@@ -35,11 +35,11 @@ namespace BeFit.Logic
             }
         }
 
-        public void AddEntry(int clientId)
+        public void AddEntry(Client client)
         {
             Entry entry = new Entry
             {
-                ClientId = clientId,
+                Client = client,
                 Date = System.DateTime.Now,
                 Id = GetLastEntryId() + 1
             };

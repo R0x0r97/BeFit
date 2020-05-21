@@ -14,8 +14,8 @@ namespace BeFit.Model
 
         public int LengthInDays { get; set; }
 
-        public String Name { get; set; }
+        public string Name { get; set; }
 
-        public Boolean isDeleted { get; set; }
+        public bool isDeleted { get; set; }
     }
 }
