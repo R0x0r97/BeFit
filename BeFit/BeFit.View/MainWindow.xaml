@@ -30,6 +30,8 @@
             <TabItem Header="Enter">
                 <TabItem.ContentTemplate>
                     <DataTemplate>
+                        <controls:ManageEntries DataContext="{Binding DataContext.ManageEntriesVM, 
+                            RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
                     </DataTemplate>
                 </TabItem.ContentTemplate>
             </TabItem>

@@ -47,6 +47,7 @@
     <Compile Include="DBContext\BeFitDB.cs" />
     <Compile Include="DBContext\DBInitializer.cs" />
     <Compile Include="Entry.cs" />
+    <Compile Include="MissingDllHack.cs" />
     <Compile Include="Ticket.cs" />
     <Compile Include="TicketType.cs" />
     <Compile Include="User.cs" />

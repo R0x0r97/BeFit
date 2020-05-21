@@ -16,9 +16,11 @@ namespace BeFit.ViewModel
         public MainWindowViewModel()
         {
             ManageClientsVM = new ManageClientsVM();
-            CloseCommand = new RelayCommand<string>(this.CloseCommandExecute, this.CloseCommandCanExecute);
+            ManageEntriesVM = new ManageEntriesVM();
+            CloseCommand = new RelayCommand<string>(CloseCommandExecute, CloseCommandCanExecute);
         }
         public ManageClientsVM ManageClientsVM { get; }
+        public ManageEntriesVM ManageEntriesVM { get; }
 
         public RelayCommand<string> CloseCommand { get; }
 

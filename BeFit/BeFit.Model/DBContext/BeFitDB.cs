@@ -4,11 +4,13 @@
     using BeFit.Model;
     public class BeFitDB : DbContext
     {
-        public BeFitDB() { }
+        public BeFitDB():
+            base("name=BeFitDB")
+        { }
 
         public virtual DbSet<Client> Clients { get; set; }
 
-        public virtual DbSet<Entry> Logins { get; set; }
+        public virtual DbSet<Entry> Entries { get; set; }
 
         public virtual DbSet<Ticket> Sales { get; set; }
 
