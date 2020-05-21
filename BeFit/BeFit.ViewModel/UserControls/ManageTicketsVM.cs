@@ -49,8 +49,8 @@ namespace BeFit.ViewModel.UserControls
             set
             {
                 client = value;
-                //CardId = client.CardId.ToString();
-                CardId = client.Name;
+                CardId = client.CardId.ToString();
+                //CardId = client.Name;
             }
         }
 
