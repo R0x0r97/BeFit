@@ -12,7 +12,7 @@ namespace BeFit.ViewModel.UserControls
     public class ManageEntriesVM : ViewModelBase
     {
         private List<Client> clients;
-        private int clientId;
+        private Client selectedClient;
         public RelayCommand<string> AddEntryCommand { get; }
 
         public ManageEntriesVM()
@@ -34,22 +34,22 @@ namespace BeFit.ViewModel.UserControls
             }
         }
 
-        public int ClientId
+        public Client SelectedClient
         {
             get
             {
-                return clientId;
+                return selectedClient;
             }
             set
             {
-                clientId = value;
+                selectedClient = value;
                 RaisePropertyChanged();
             }
         }
 
         public void AddEntryCommandExecute(string obj)
         {
-            Data.Controller.AddEntry(ClientId);
+            Data.Controller.AddEntry(SelectedClient);
         }
 
         public bool AddEntryCommandCanExecute()

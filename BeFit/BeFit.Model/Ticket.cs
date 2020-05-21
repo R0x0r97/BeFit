@@ -9,11 +9,8 @@ namespace BeFit.Model
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Client")]
-        public int ClientId { get; set; }
-
-        [ForeignKey("User")]
-        public int SellerId { get; set; }
+        public Client Client { get; set; }
+        public User Seller { get; set; }
 
         public DateTime BuyDate { get; set; }
 
@@ -23,7 +20,6 @@ namespace BeFit.Model
 
         public int TimesUsed { get; set; }
 
-        [ForeignKey("Type")]
-        public int TypeId { get; set; }
+        public TicketType Type { get; set; }
     }
 }
