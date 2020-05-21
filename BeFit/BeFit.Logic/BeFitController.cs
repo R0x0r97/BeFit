@@ -30,42 +30,15 @@
             return beFitDatabase.Types.ToList();
         }
 
-        public int GetLastEntryId()
-        {
-            var entry = beFitDatabase.Entries.Last();
-            if (entry == null)
-            {
-                return -1;
-            }
-            else
-            {
-                return entry.Id;
-            }
-        }
-
         public void AddEntry(Client client)
         {
             Entry entry = new Entry
             {
                 Client = client,
                 Date = System.DateTime.Now,
-                Id = GetLastEntryId() + 1
             };
 
             beFitDatabase.Entries.Add(entry);
-        }
-
-        public int GetLastTicketId()
-        {
-            var sale = beFitDatabase.Sales.Last();
-            if (sale == null)
-            {
-                return -1;
-            }
-            else
-            {
-                return sale.Id;
-            }
         }
 
         public void AddTicket(Client client, TicketType ticketType, DateTime? startDate = null)
@@ -74,7 +47,6 @@
             {
                 BuyDate = DateTime.Now,
                 Client = client,
-                Id = GetLastTicketId() + 1,
                 RemainingEntries = ticketType.TimesUsable.Value,
                 Type = ticketType
             };
@@ -88,19 +60,6 @@
             beFitDatabase.Sales.Add(ticket);
         }
 
-        public int GetLastClientId()
-        {
-            var entry = beFitDatabase.Entries.Last();
-            if (entry == null)
-            {
-                return 999999;
-            }
-            else
-            {
-                return entry.Id;
-            }
-        }
-
         public void AddClient(Client newClient)
         {
             Client client = new Client
@@ -111,10 +70,10 @@
                 Name = newClient.Name,
                 PhoneNumber = newClient.Name,
                 Picture = newClient.Picture,
-                Id = GetLastClientId() + 1
             };
 
             beFitDatabase.Clients.Add(client);
+            beFitDatabase.SaveChanges();
         }
     }
 }

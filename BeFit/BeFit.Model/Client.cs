@@ -8,6 +8,8 @@ namespace BeFit.Model
         [Key]
         public int Id { get; set; }
 
+        public int CardId { get; set; }
+
         public DateTime BirthDate { get; set; }
 
         public String Name { get; set; }

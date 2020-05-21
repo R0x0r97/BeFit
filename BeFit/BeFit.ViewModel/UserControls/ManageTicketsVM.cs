@@ -11,37 +11,23 @@ namespace BeFit.ViewModel.UserControls
 {
     public class ManageTicketsVM : ViewModelBase
     {
-        private List<Client> clients;
-        private List<TicketType> ticketTypes;
-
         public ManageTicketsVM()
         {
-            Clients = Data.Controller.GetClients();
-            TicketTypes = Data.Controller.GetTicketTypes();
         }
 
         public List<Client> Clients
         {
             get
             {
-                return clients;
-            }
-            set
-            {
-                clients = value;
-                RaisePropertyChanged();
+                //return clients;
+                return Data.Controller.GetClients();
             }
         }
         public List<TicketType> TicketTypes
         {
             get
             {
-                return ticketTypes;
-            }
-            set
-            {
-                ticketTypes = value;
-                RaisePropertyChanged();
+                return Data.Controller.GetTicketTypes();
             }
         }
 
