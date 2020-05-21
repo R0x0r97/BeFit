@@ -37,7 +37,7 @@ namespace BeFit.Logic
 
         public void AddEntry(int clientId)
         {
-            var entry = new Entry
+            Entry entry = new Entry
             {
                 ClientId = clientId,
                 Date = System.DateTime.Now,
@@ -45,6 +45,33 @@ namespace BeFit.Logic
             };
 
             beFitDatabase.Entries.Add(entry);
+        }
+
+        public int GetLastClientId()
+        {
+            var entry = beFitDatabase.Entries.Last();
+            if (entry == null)
+            {
+                return 999999;
+            }
+            else
+            {
+                return entry.Id;
+            }
+        }
+
+        public void AddClient(Client newClient)
+        {
+            Client client = new Client
+            {
+                BirthDate = newClient.BirthDate,
+                Email = newClient.Email,
+                IsDeleted = false,
+                Name = newClient.Name,
+                PhoneNumber = newClient.Name,
+                Picture = newClient.Picture,
+                Id = GetLastClientId() + 1
+            };
         }
 
         public List<User> GetUsers()
