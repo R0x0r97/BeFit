@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity.Migrations;
     using System.Linq;
     using BeFit.Model;
     using BeFit.Model.DBContext;
@@ -106,6 +107,11 @@
         {
             beFitDatabase.Clients.Remove(clientToDelete);
             beFitDatabase.SaveChanges();
+        }
+
+        public void ModifyClient(Client clientToModify)
+        {
+            beFitDatabase.Clients.AddOrUpdate(clientToModify);
         }
     }
 }
