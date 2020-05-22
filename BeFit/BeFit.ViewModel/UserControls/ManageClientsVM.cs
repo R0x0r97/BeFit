@@ -13,6 +13,7 @@ namespace BeFit.ViewModel.UserControls
     {
         public RelayCommand<string> AddClientCommand { get; }
         public RelayCommand<string> RemoveClientCommand { get; }
+        public RelayCommand<string> ModifyClientCommand { get; }
 
         public string nameInput;
         public string phoneNumberInput;
@@ -20,12 +21,18 @@ namespace BeFit.ViewModel.UserControls
         public DateTime birthdayInput;
         public List<Client> clients;
         public Client selectedClientToDelete;
+        public Client selectedClientToModify;
+        public string selectedClientName;
+        public string selectedClientPhoneNumber;
+        public string selectedClientEmail;
+        public DateTime selectedClientBirthday;
 
         public ManageClientsVM()
         {
             birthdayInput = DateTime.Now;
             AddClientCommand = new RelayCommand<string>(AddClientCommandExecute, AddClientCommandCanExecute);
             RemoveClientCommand = new RelayCommand<string>(RemoveClientCommandExecute);
+            ModifyClientCommand = new RelayCommand<string>(ModifyClientCommandExecute);
         }
 
         public DateTime BirthdayInput
@@ -54,6 +61,58 @@ namespace BeFit.ViewModel.UserControls
             }
         }
 
+        public string SelectedClientName
+        {
+            get
+            {
+                return selectedClientName;
+            }
+            set
+            {
+                selectedClientName = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string SelectedClientPhoneNumber
+        {
+            get
+            {
+                return selectedClientPhoneNumber;
+            }
+            set
+            {
+                selectedClientPhoneNumber = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public string SelectedClientEmail
+        {
+            get
+            {
+                return selectedClientEmail;
+            }
+            set
+            {
+                selectedClientEmail = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public DateTime SelectedClientBirthday
+        {
+            get
+            {
+                return selectedClientBirthday;
+            }
+            set
+            {
+                selectedClientBirthday = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public Client SelectedClientToDelete
         {
             get
@@ -63,6 +122,19 @@ namespace BeFit.ViewModel.UserControls
             set
             {
                 selectedClientToDelete = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Client SelectedClientToModify
+        {
+            get
+            {
+                return selectedClientToModify;
+            }
+            set
+            {
+                selectedClientToModify = value;
                 RaisePropertyChanged();
             }
         }
@@ -115,6 +187,20 @@ namespace BeFit.ViewModel.UserControls
         public void RemoveClientCommandExecute(string obj)
         {
             Data.Controller.DeleteClient(SelectedClientToDelete);
+        }
+
+        public void ModifyClientCommandExecute(string obj)
+        {
+            Client clientToModify = new Client { 
+                BirthDate = selectedClientBirthday, 
+                Email = selectedClientEmail, 
+                Name = selectedClientName, 
+                PhoneNumber = selectedClientPhoneNumber,
+                CardId = SelectedClientToModify.CardId,
+                IsDeleted = selectedClientToModify.IsDeleted, 
+                Picture = SelectedClientToModify.Picture 
+            };
+            Data.Controller.ModifyClient(clientToModify);
         }
 
         public bool AddClientCommandCanExecute()
