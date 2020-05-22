@@ -112,7 +112,7 @@ namespace BeFit.ViewModel.UserControls
             ResetInput();
         }
 
-        public void RemoveClientCommandExecute()
+        public void RemoveClientCommandExecute(string obj)
         {
             Data.Controller.DeleteClient(SelectedClientToDelete);
         }
