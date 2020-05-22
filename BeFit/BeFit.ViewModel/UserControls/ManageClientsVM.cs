@@ -73,11 +73,6 @@ namespace BeFit.ViewModel.UserControls
             {
                 return Data.Controller.GetClients();
             }
-            set
-            {
-                clients = value;
-                RaisePropertyChanged();
-            }
         }
 
         public string PhoneNumberInput
@@ -115,6 +110,8 @@ namespace BeFit.ViewModel.UserControls
         public void RemoveClientCommandExecute(string obj)
         {
             Data.Controller.DeleteClient(SelectedClientToDelete);
+
+            SelectedClientToDelete = null;
         }
 
         public bool AddClientCommandCanExecute()

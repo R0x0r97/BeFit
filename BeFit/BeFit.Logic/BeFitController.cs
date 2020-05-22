@@ -105,6 +105,7 @@
         public void DeleteClient(Client clientToDelete)
         {
             beFitDatabase.Clients.Remove(clientToDelete);
+            beFitDatabase.SaveChanges();
         }
     }
 }
