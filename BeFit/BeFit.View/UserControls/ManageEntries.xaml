@@ -35,7 +35,7 @@
         </TextBlock>
         <ComboBox Grid.Row="1" Grid.Column="0" Margin="5" 
                   ItemsSource="{Binding Clients}" 
-                  SelectedValue ="{Binding SelectedClient, Mode=TwoWay}"
+                  SelectedValue ="{Binding SelectedClient}"
                   DisplayMemberPath="CardId"></ComboBox>
         <ComboBox Grid.Row="1" Grid.Column="1" Margin="5" 
                   ItemsSource="{Binding SelectedClientTickets}" 

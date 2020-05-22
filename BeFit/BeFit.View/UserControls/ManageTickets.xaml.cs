@@ -24,13 +24,5 @@ namespace BeFit.View.UserControls
         {
             InitializeComponent();
         }
-        private void SellTicketButtonClicked(object sender, EventArgs e)
-        {
-            /*clientComboBox.SelectedIndex = -1;
-            clientComboBox.Text = "";
-
-            ticketTypeComboBox.SelectedIndex = -1;
-            ticketTypeComboBox.Text = "";*/
-        }
     }
 }

@@ -51,7 +51,10 @@ namespace BeFit.ViewModel.UserControls
             set
             {
                 selectedClient = value;
-                SelectedClientTickets = Data.Controller.GetTicketsForClientId(selectedClient.Id);
+                if (selectedClient != null)
+                {
+                    SelectedClientTickets = Data.Controller.GetTicketsForClientId(selectedClient.Id);
+                }
                 RaisePropertyChanged();
             }
         }
@@ -88,6 +91,9 @@ namespace BeFit.ViewModel.UserControls
             {
                 Data.Controller.AddEntry(SelectedClient);
             }
+
+            SelectedClient = null;
+            SelectedTicket = null;
         }
 
         public bool isTicketValid()

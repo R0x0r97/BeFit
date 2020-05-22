@@ -24,10 +24,9 @@
                   x:Name="clientComboBox"
                   ItemsSource="{Binding Clients}"
                   DisplayMemberPath="Name"
-                  SelectedItem="{Binding Client}">
+                  SelectedValue="{Binding Client}">
         </ComboBox>
         <Button Grid.Row="0" Grid.Column="2" Grid.RowSpan="4"
-                Click="SellTicketButtonClicked"
                 Command="{Binding SellTicketCommand}"
                 Content="Sell Ticket" Width="87" Margin="10,0,0,0">
         </Button>
@@ -38,7 +37,7 @@
                   x:Name="ticketTypeComboBox"
                   ItemsSource="{Binding TicketTypes}"
                   DisplayMemberPath="Name"
-                  SelectedItem="{Binding TicketType}">
+                  SelectedValue="{Binding TicketType}">
         </ComboBox>
         <Label Content="Activation date" Grid.Row="3" Grid.Column="0"></Label>
         <DatePicker Grid.Row="3" Grid.Column="1"

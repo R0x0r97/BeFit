@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BeFit.ViewModel.Pages
 {
-    class LoginPageVM : ViewModelBase
+    public class LoginPageVM : ViewModelBase
     {
     }
 }

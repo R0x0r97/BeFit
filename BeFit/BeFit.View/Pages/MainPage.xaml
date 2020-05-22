@@ -4,9 +4,39 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BeFit.View.Pages"
+             xmlns:controls="clr-namespace:BeFit.View.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="0">
+            <TabItem Header="Clients">
+                <TabItem.ContentTemplate>
+                    <DataTemplate>
+                        <controls:ManageClients DataContext="{Binding DataContext.ManageClientsVM, 
+                            RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+                    </DataTemplate>
+                </TabItem.ContentTemplate>
+            </TabItem>
+            <TabItem Header="Sell Ticket">
+                <TabItem.ContentTemplate>
+                    <DataTemplate>
+                        <controls:ManageTickets DataContext="{Binding DataContext.ManageTicketsVM, 
+                            RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+                    </DataTemplate>
+                </TabItem.ContentTemplate>
+            </TabItem>
+            <TabItem Header="Enter">
+                <TabItem.ContentTemplate>
+                    <DataTemplate>
+                        <controls:ManageEntries DataContext="{Binding DataContext.ManageEntriesVM, 
+                            RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}"/>
+                    </DataTemplate>
+                </TabItem.ContentTemplate>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>
