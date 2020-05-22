@@ -12,16 +12,20 @@ namespace BeFit.ViewModel.UserControls
     public class ManageClientsVM : ViewModelBase
     {
         public RelayCommand<string> AddClientCommand { get; }
+        public RelayCommand<string> RemoveClientCommand { get; }
 
         public string nameInput;
         public string phoneNumberInput;
         public string emailInput;
         public DateTime birthdayInput;
+        public List<Client> clients;
+        public Client selectedClientToDelete;
 
         public ManageClientsVM()
         {
             birthdayInput = DateTime.Now;
             AddClientCommand = new RelayCommand<string>(AddClientCommandExecute, AddClientCommandCanExecute);
+            RemoveClientCommand = new RelayCommand<string>(RemoveClientCommandExecute);
         }
 
         public DateTime BirthdayInput
@@ -46,6 +50,32 @@ namespace BeFit.ViewModel.UserControls
             set
             {
                 nameInput = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Client SelectedClientToDelete
+        {
+            get
+            {
+                return selectedClientToDelete;
+            }
+            set
+            {
+                selectedClientToDelete = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public List<Client> Clients
+        {
+            get
+            {
+                return Data.Controller.GetClients();
+            }
+            set
+            {
+                clients = value;
                 RaisePropertyChanged();
             }
         }
@@ -79,8 +109,18 @@ namespace BeFit.ViewModel.UserControls
         public void AddClientCommandExecute(string obj)
         {
             Data.Controller.AddClient(NameInput, PhoneNumberInput, EmailInput, BirthdayInput);
-
             ResetInput();
+        }
+
+        public void RemoveClientCommandExecute()
+        {
+            Data.Controller.DeleteClient(SelectedClientToDelete);
+        }
+
+        public bool AddClientCommandCanExecute()
+        {
+            //Verify Client validity
+            return true;
         }
 
         public void ResetInput()
@@ -89,12 +129,6 @@ namespace BeFit.ViewModel.UserControls
             EmailInput = "";
             PhoneNumberInput = "";
             BirthdayInput = DateTime.Now;
-        }
-
-        public bool AddClientCommandCanExecute()
-        {
-            //Verify Client validity
-            return true;
         }
     }
 }
